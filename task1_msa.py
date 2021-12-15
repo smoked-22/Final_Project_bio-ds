@@ -132,6 +132,9 @@ def main():
         # Iteratively conduct sequence alignment to template MSA
         print(">> making MSA of file ", filename)
         print(datetime.datetime.now())
+        print("template msa : ", len(template_msa))
+        print("First msa : ", len(template_msa[0]))
+        print("Second msa: ", len(template_msa[1]))
 
         seqlist = make_msa_from_file(filename)
         lengths.append(len(seqlist))
