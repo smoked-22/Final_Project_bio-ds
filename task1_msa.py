@@ -42,11 +42,11 @@ def greedy_align(template_seq, seq):
     scores = [[float("-inf") for _ in range(len_s2 + 1)] for _ in range(len_s1 + 1)]
     backtrack = [[None for _ in range(len_s2 + 1)] for _ in range(len_s1 + 1)]
     scores[0][0] = 0
-    # total_len = (len_s1 + 1) * (len_s2 + 1)
+    total_len = (len_s1 + 1) * (len_s2 + 1)
     for i in range(len_s1 + 1):
-        # large_loop = i * (len_s2 + 1)
+        large_loop = i * (len_s2 + 1)
         for j in range(len_s2 + 1):
-            # print("Loop at = {}/{}\r".format(large_loop+j, total_len), end='')
+            print("Loop at = {}/{}\r".format(large_loop+j, total_len), end='')
             if i > 0 and j > 0:
                 n_score = score.score(i - 1, seq[j - 1])
                 if scores[i - 1][j - 1] + n_score > scores[i][j]:
@@ -136,6 +136,7 @@ def main():
         lengths.append(len(seqlist))
 
         for i, seq in enumerate(seqlist):
+            print(">> sequence #{}".format(i))
             template_msa = greedy_align(template_msa, seq)
 
         # save each MSA after alignment of each fasta files
