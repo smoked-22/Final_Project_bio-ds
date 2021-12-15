@@ -2,19 +2,20 @@
 
 import sys
 import datetime
+import argparse
 
 sys.setrecursionlimit(5000)
 
 
 class ScoreParam():
-    def __init__(self, template_seq):
+    def __init__(self, template_seq, match=7, mismatch=-2, indel=-10):
         ############################################
         # implement function
         # Input: a list of strings (aligned sequences)
         ############################################
-        self.match = 7
-        self.mismatch = -2
-        self.indel = -10
+        self.match = match
+        self.mismatch = mismatch
+        self.indel = indel
         self.temp_seq = template_seq[1]
 
     def score(self, pos, nucleotide):
@@ -29,13 +30,13 @@ class ScoreParam():
             return self.mismatch
 
 
-def greedy_align(template_seq, seq):
+def greedy_align(template_seq, seq, score_dict):
     """
     aligns a sequence (str) to template_seq (list of str), which is MSA.
     same as two-way alignment, but has a difference in scoring function.
     """
 
-    score = ScoreParam(template_seq)
+    score = ScoreParam(template_seq, **score_dict)
     len_s1 = len(template_seq[1])
     len_s2 = len(seq)
     print("Len1 : {} Len2 : {}".format(len_s1, len_s2))
@@ -113,6 +114,13 @@ def save_list_as_file(lst, filename):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("match")
+    parser.add_argument("mismatch")
+    parser.add_argument("indel")
+    args = parser.parse_args()
+    score_dict = {"match": args.match, "mismatch": args.mismatch,
+                  "indel": args.indel}
     print(">> Opening fasta files\n")
     print(datetime.datetime.now())
 
@@ -138,7 +146,7 @@ def main():
 
         for i, seq in enumerate(seqlist):
             print(">> sequence #{}".format(i))
-            template_msa = greedy_align(template_msa, seq)
+            template_msa = greedy_align(template_msa, seq, score_dict)
 
         # save each MSA after alignment of each fasta files
         save_list_as_file(template_msa[start_idx: (start_idx + lengths[filenum + 1])], 'A-' + filename)
