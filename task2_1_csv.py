@@ -63,11 +63,12 @@ def main():
             mutation = str(pos)+ "del"+ original
         else:
             mutation = str(pos) + original + ">" + changed
-        f.write(f'{mutation},{counter[0]/lengths[0]*100},{(counter[0]+counter[1])/(lengths[0]+lengths[1])*100},\
-                {(counter[0]+counter[1]+counter[2])/(lengths[0]+lengths[1]+lengths[2])*100},\
-                {(counter[0]+counter[1]+counter[2]+counter[3])/(lengths[0]+lengths[1]+lengths[2]+lengths[3])*100},\
-                {(counter[0]+counter[1]+counter[2]+counter[3]+counter[4])/(lengths[0]+lengths[1]+lengths[2]+lengths[3]+lengths[4])*100},\
-                {(counter[0]+counter[1]+counter[2]+counter[3]+counter[4]+counter[5])/(lengths[0]+lengths[1]+lengths[2]+lengths[3]+lengths[4]+lengths[5])*100}\n')
+        f.write(f'{mutation},{counter[0]/lengths[0]*100}\n')
+        # ,{(counter[0]+counter[1])/(lengths[0]+lengths[1])*100},\
+        #         {(counter[0]+counter[1]+counter[2])/(lengths[0]+lengths[1]+lengths[2])*100},\
+        #         {(counter[0]+counter[1]+counter[2]+counter[3])/(lengths[0]+lengths[1]+lengths[2]+lengths[3])*100},\
+        #         {(counter[0]+counter[1]+counter[2]+counter[3]+counter[4])/(lengths[0]+lengths[1]+lengths[2]+lengths[3]+lengths[4])*100},\
+        #         {(counter[0]+counter[1]+counter[2]+counter[3]+counter[4]+counter[5])/(lengths[0]+lengths[1]+lengths[2]+lengths[3]+lengths[4]+lengths[5])*100}\n')
     f.close()
             
         
