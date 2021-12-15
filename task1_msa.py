@@ -15,7 +15,7 @@ class ScoreParam():
         self.match = 7
         self.mismatch = -2
         self.indel = -10
-        self.temp_seq = template_seq
+        self.temp_seq = template_seq[1]
 
     def score(self, pos, nucleotide):
         ############################################
@@ -114,9 +114,6 @@ def main():
     print(datetime.datetime.now())
 
     template_msa = make_msa_from_file("spike_msa_template.fasta")
-    print("template msa : ", len(template_msa))
-    for i in range(len(template_msa)):
-        print("Template {}\t len: {}".format(i, len(template_msa[i])))
     files = ['HCOV19-ENGLAND-2021-04-19.fasta',\
              'HCOV19-ENGLAND-2021-05-03.fasta']
     # ,\
@@ -134,9 +131,6 @@ def main():
         print(datetime.datetime.now())
 
         seqlist = make_msa_from_file(filename)
-        print("template msa : ", len(seqlist))
-        for i in range(len(seqlist)):
-            print("template {}\tlen : {}".format(i, len(seqlist[i])))
         lengths.append(len(seqlist))
 
         for i, seq in enumerate(seqlist):
