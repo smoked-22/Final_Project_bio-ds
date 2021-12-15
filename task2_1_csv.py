@@ -10,12 +10,13 @@ def main():
 
     nt_list = ["A", "T", "G", "C", "-"]
 
-    files = ['A-HCOV19-ENGLAND-2021-04-19.fasta',\
-            'A-HCOV19-ENGLAND-2021-05-03.fasta',\
-             'A-HCOV19-ENGLAND-2021-05-17.fasta',\
-             'A-HCOV19-ENGLAND-2021-05-31.fasta',\
-             'A-HCOV19-ENGLAND-2021-06-14.fasta',\
-             'A-HCOV19-ENGLAND-2021-06-28.fasta']
+    files = ['A-HCOV19-ENGLAND-2021-04-19.fasta']
+    # ,\
+    #         'A-HCOV19-ENGLAND-2021-05-03.fasta',\
+    #          'A-HCOV19-ENGLAND-2021-05-17.fasta',\
+    #          'A-HCOV19-ENGLAND-2021-05-31.fasta',\
+    #          'A-HCOV19-ENGLAND-2021-06-14.fasta',\
+    #          'A-HCOV19-ENGLAND-2021-06-28.fasta']
 
     mutation_counter = [{}]*5
     lengths = []
