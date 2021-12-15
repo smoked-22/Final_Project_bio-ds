@@ -114,7 +114,7 @@ def main():
     print(datetime.datetime.now())
 
     template_msa = make_msa_from_file("spike_msa_template.fasta")
-    print(len(template_msa))
+    print("template msa : " + len(template_msa))
     files = ['HCOV19-ENGLAND-2021-04-19.fasta', \
              'HCOV19-ENGLAND-2021-05-03.fasta']
     # ,\
