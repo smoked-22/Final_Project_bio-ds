@@ -10,12 +10,22 @@ class ScoreParam():
         #implement function
         #Input: a list of strings (aligned sequences)
         ############################################
+        self.match = 7
+        self.mismatch = -2
+        self.indel = -10
+        self.temp_seq = template_seq
+
     def score(self, pos, nucleotide):
         ############################################
         #implement this function
         #Input: self, pos (int), nucleotide (str)
         #Output : a score for a specific nucleotide in a specific position
         ############################################
+        if self.temp_seq[pos] == nucleotide:
+            return self.match
+        else:
+            return self.mismatch
+
 
 def greedy_align(template_seq, seq):
     """
@@ -96,11 +106,12 @@ def main():
 
     template_msa = make_msa_from_file("spike_msa_template.fasta")
     files = ['HCOV19-ENGLAND-2021-04-19.fasta',\
-            'HCOV19-ENGLAND-2021-05-03.fasta',\
-             'HCOV19-ENGLAND-2021-05-17.fasta',\
-             'HCOV19-ENGLAND-2021-05-31.fasta',\
-             'HCOV19-ENGLAND-2021-06-14.fasta',\
-             'HCOV19-ENGLAND-2021-06-28.fasta']
+            'HCOV19-ENGLAND-2021-05-03.fasta']
+    # ,\
+    #          'HCOV19-ENGLAND-2021-05-17.fasta',\
+    #          'HCOV19-ENGLAND-2021-05-31.fasta',\
+    #          'HCOV19-ENGLAND-2021-06-14.fasta',\
+    #          'HCOV19-ENGLAND-2021-06-28.fasta']
     lengths = [len(template_msa)]
 
     print(">> Running MSA algorithm\n")
