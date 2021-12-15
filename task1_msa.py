@@ -136,7 +136,7 @@ def main():
         seqlist = make_msa_from_file(filename)
         print("template msa : ", len(seqlist))
         for i in range(len(seqlist)):
-            print("template %d\tlen : %d".format(i, seqlist[i]))
+            print("template {}\tlen : {}".format(i, seqlist[i]))
         lengths.append(len(seqlist))
 
         for i, seq in enumerate(seqlist):
