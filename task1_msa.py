@@ -46,7 +46,7 @@ def greedy_align(template_seq, seq):
     for i in range(len_s1 + 1):
         large_loop = i * (len_s2 + 1)
         for j in range(len_s2 + 1):
-            print("Loop at = {}/{}\r".format(large_loop+j, total_len, end=''))
+            print("Loop at = {}/{}\r".format(large_loop+j, total_len), end='')
             if i > 0 and j > 0:
                 n_score = score.score(i - 1, seq[j - 1])
                 if scores[i - 1][j - 1] + n_score > scores[i][j]:
