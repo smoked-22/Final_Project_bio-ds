@@ -49,8 +49,10 @@ def main():
             mutation = str(pos)+ "del"+ original
         else:
             mutation = str(pos) + original + ">" + changed
-        f.write(f'{mutation},{counter[0]/lengths[0]*100},{counter[1]/lengths[1]*100},\
-                {counter[2]/lengths[2]*100},{counter[3]/lengths[3]*100},{counter[4]/lengths[4]*100},{counter[5]/lengths[5]*100}\n')
+        f.write(f'{mutation},{counter[0]/lengths[0]*100}\n')
+                # ,{counter[1]/lengths[1]*100},\
+                # {counter[2]/lengths[2]*100},{counter[3]/lengths[3]*100},\
+                # {counter[4]/lengths[4]*100},{counter[5]/lengths[5]*100}\n')
     f.close()
 
     f = open("mutation_cumulative_list.csv", "w")
