@@ -115,6 +115,8 @@ def main():
 
     template_msa = make_msa_from_file("spike_msa_template.fasta")
     print("template msa : ", len(template_msa))
+    print("First msa : ", len(template_msa[0]))
+    print("Second msa: ", len(template_msa[1]))
     files = ['HCOV19-ENGLAND-2021-04-19.fasta', \
              'HCOV19-ENGLAND-2021-05-03.fasta']
     # ,\
